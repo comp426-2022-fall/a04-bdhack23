@@ -11,3 +11,11 @@ args["port"];
 // Make this const default to port 5000 if there is no argument given for `--port`.
 const port = args.port || process.env.PORT || 5000;
 
+// The app shall be express
+const app = express()
+
+// Make endpoint at /app/ return "200 OK"
+app.get('/app/', (req,res) => {
+  res.send("200 OK").end()
+})
+
