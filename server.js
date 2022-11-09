@@ -1,10 +1,13 @@
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+
 // Imports
-import minimist from 'minimist';
-import express from 'express';
+import {minimist} from 'minimist';
+import {express} from 'express';
 import {roll} from "./lib/roll.js";
 
 // Require express module
-const http = require('express');
+ const http = require('express');
 
 // Require minimist module
 const args = require('minimist')(process.argv.slice(2));
