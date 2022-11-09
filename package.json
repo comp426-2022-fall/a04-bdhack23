@@ -7,13 +7,11 @@
     "start": "node server.js"
   },
   "name": "a04",
-  "type": "module",
   "description": "This assignment will help you stand up a web API using Express and the module that you produced for a03.",
   "version": "1.0.0",
   "main": "server.js",
   "devDependencies": {},
   "repository": {
-    "type": "git",
     "url": "git+https://github.com/comp426-2022-fall/a04-bdhack23.git"
   },
   "author": "bdhack23",
