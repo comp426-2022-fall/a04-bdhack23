@@ -1,29 +1,35 @@
-import { createRequire } from 'node:module';
-const require = createRequire(import.meta.url);
+// import { createRequire } from 'node:module';
+// const require = createRequire(import.meta.url);
 
 // Imports
 import minimist from 'minimist';
-import {express} from 'express';
-import {roll} from "./lib/roll.js";
+import express from 'express';
+import { roll } from "./lib/roll.js";
 
 // Require express module
 // const http = require('express');
 
-// Require minimist module
-const args = require('minimist')(process.argv.slice(2));
+// The app shall be express
+const app = express()
 
-// Use minimist to process one argument `--port=` on the command line after `node server.js`.
-args["port"];
+// Require minimist module
+const args = ('minimist')(process.argv.slice(2));
 
 // Define a const `port` using the argument from the command line. 
 // Make this const default to port 5000 if there is no argument given for `--port`.
 const port = args.port || process.env.PORT || 5000;
 
-// The app shall be express
-const app = express()
+// define our constants for the default roll
+const sides = 6;
+const dice = 2;
+const rolls = 1;
+
 
 // Make endpoint at /app/ return "200 OK"
-app.get('/app/', (req,res) => {
+app.get('/app/', (req,res,next) => {
   res.send("200 OK").end()
 })
 
+// Endpoint that returns the JSON for the default roll
+app.get('/app/roll', (req,res,next) => {
+  res.status("200 OK").json(roll(sides,dice,rolls))
