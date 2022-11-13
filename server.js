@@ -27,9 +27,25 @@ const rolls = 1;
 
 // Make endpoint at /app/ return "200 OK"
 app.get('/app/', (req,res,next) => {
-  res.send("200 OK").end()
+  res.status(200).send("200 OK").end()
 })
 
 // Endpoint that returns the JSON for the default roll
-app.get('/app/roll', (req,res,next) => {
-  res.status("200 OK").json(roll(sides,dice,rolls))
+app.post('/app/roll/:sides', (req,res,next) => {
+  sides = parseInt(req.params.sides)
+  res.status("200").roll(sides,dice,rolls)
+})
+
+  app.post('/app/roll/:sides/:dice', (req,res,next) => {
+    sides = parseInt(req.params.sides)
+    dice = parseInt(req.params.dice)
+    res.status("200").roll(sides,dice,rolls)
+  })
+
+
+  app.post('/app/roll/:sides/:dice', (req,res,next) => {
+    sides = parseInt(req.params.sides)
+    dice = parseInt(req.params.dice)
+    rolls = parseInt(req.params.rolls)
+    res.status("200").roll(sides,dice,rolls)
+  })
