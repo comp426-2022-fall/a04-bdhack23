@@ -13,7 +13,7 @@ import { roll } from "./lib/roll.js";
 const app = express()
 
 // Require minimist module
-const args = ('minimist')(process.argv.slice(2));
+const args = minimist(process.argv.slice(2));
 
 // Define a const `port` using the argument from the command line. 
 // Make this const default to port 5000 if there is no argument given for `--port`.
