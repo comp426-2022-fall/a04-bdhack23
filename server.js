@@ -26,24 +26,27 @@ var rolls = 1;
 
 // Make endpoint at /app/ return "200 OK"
 app.get('/app/', (req,res,next) => {
-  res.type('html')
-  res.status(200).send("200 OK").end()
+  res.send("200 OK")
+  res.end
 })
 
 // Endpoint that returns the JSON for the default roll
 app.get('/app/roll', (req,res,next) => {
-  res.status(200).json(roll(sides, dice, rolls))
+  res.send(roll(sides, dice, rolls))
+  res.end
 })
 
 app.get('/app/roll/:sides', (req,res,next) => {
   sides = parseInt(req.params.sides)
-  res.status("200").json(sides,dice,rolls)
+  res.send(roll(sides, dice, rolls))
+  res.end
 })
 
   app.get('/app/roll/:sides/:dice', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
-    res.status(200).json(roll(sides, dice, rolls))
+    res.send(roll(sides, dice, rolls))
+    res.end
   })
 
 
@@ -51,18 +54,22 @@ app.get('/app/roll/:sides', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
     rolls = parseInt(req.params.rolls)
-    res.status(200).json(roll(sides, dice, rolls))
+    res.send(roll(sides, dice, rolls))
+    res.end
   })
 
   app.get('/app/roll', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
     rolls = parseInt(req.params.rolls)
-    res.status(200).json(roll(sides, dice, rolls))
+    res.send(roll(sides, dice, rolls))
+    res.end
   })
 
 // 404 NOT FOUND
 app.get("*", (req,res) => {
-    res.status(404).send("404 NOT FOUND")
+  res.status(404).send("404 NOT FOUND")
+  res.end
 })
+
  app.listen(port)
