@@ -21,10 +21,10 @@ if (typeof(args.port) == "boolean") {
   port = 5000;
 }
 
-// define our constants for the default roll
-const sides = 6;
-const dice = 2;
-const rolls = 1;
+// define our variables for the default roll
+var sides = 6;
+var dice = 2;
+var rolls = 1;
 
 
 // Make endpoint at /app/ return "200 OK"
