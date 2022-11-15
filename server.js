@@ -19,9 +19,9 @@ if (typeof(args.port) == "boolean") {
 }
 
 // define our variables for the default roll
-var sides = 6;
-var dice = 2;
-var rolls = 1;
+const sides = 6;
+const dice = 2;
+const rolls = 1;
 
 
 // Make endpoint at /app/ return "200 OK"
@@ -43,7 +43,7 @@ app.get('/app/roll/:sides', (req,res,next) => {
   app.get('/app/roll/:sides/:dice', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
-    res.status("200").json(sides,dice,rolls)
+    res.status(200).json(roll(sides, dice, rolls))
   })
 
 
@@ -51,14 +51,14 @@ app.get('/app/roll/:sides', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
     rolls = parseInt(req.params.rolls)
-    res.status("200").json(sides,dice,rolls)
+    res.status(200).json(roll(sides, dice, rolls))
   })
 
   app.get('/app/roll', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
     rolls = parseInt(req.params.rolls)
-    res.status("200").json(sides,dice,rolls)
+    res.status(200).json(roll(sides, dice, rolls))
   })
 
 // 404 NOT FOUND
