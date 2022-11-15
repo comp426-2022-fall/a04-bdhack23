@@ -26,6 +26,7 @@ var rolls = 1;
 
 // Make endpoint at /app/ return "200 OK"
 app.get('/app/', (req,res,next) => {
+  res.type('html')
   res.status(200).send("200 OK").end()
 })
 
