@@ -49,7 +49,7 @@ app.get('/app/roll/:sides', (req,res,next) => {
   })
 
 
-  app.get('/app/roll/:sides/:dice', (req,res,next) => {
+  app.get('/app/roll/:sides/:dice/:rolls', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
     rolls = parseInt(req.params.rolls)
