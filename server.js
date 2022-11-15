@@ -1,6 +1,3 @@
-// import { createRequire } from 'node:module';
-// const require = createRequire(import.meta.url);
-
 // Imports
 import minimist from 'minimist';
 import express from 'express';
@@ -39,13 +36,13 @@ app.get('/app/roll', (req,res,next) => {
 
 app.get('/app/roll/:sides', (req,res,next) => {
   sides = parseInt(req.params.sides)
-  res.status("200").roll(sides,dice,rolls)
+  res.status("200").json(sides,dice,rolls)
 })
 
   app.get('/app/roll/:sides/:dice', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
-    res.status("200").roll(sides,dice,rolls)
+    res.status("200").json(sides,dice,rolls)
   })
 
 
@@ -53,14 +50,14 @@ app.get('/app/roll/:sides', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
     rolls = parseInt(req.params.rolls)
-    res.status("200").roll(sides,dice,rolls)
+    res.status("200").json(sides,dice,rolls)
   })
 
   app.get('/app/roll', (req,res,next) => {
     sides = parseInt(req.params.sides)
     dice = parseInt(req.params.dice)
     rolls = parseInt(req.params.rolls)
-    res.status("200").roll(sides,dice,rolls)
+    res.status("200").json(sides,dice,rolls)
   })
 
 // 404 NOT FOUND
